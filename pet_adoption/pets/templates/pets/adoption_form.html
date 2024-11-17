@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Adopt {{ pet.name }}</title>
+</head>
+<body>
+    <h1>Adopt {{ pet.name }}</h1>
+    <form action="/{{ pet.id }}/adopt/" method="POST">
+        {% csrf_token %}
+        <p><strong>Breed:</strong> {{ pet.breed }}</p>
+        <p><strong>Age:</strong> {{ pet.age }} years</p>
+        <p>{{ pet.description }}</p>
+        <label for="name">Your Name:</label>
+        <input type="text" id="name" name="name" required>
+        <br><br>
+        <button type="submit">Adopt</button>
+    </form>
+    <a href="/">Back to list</a>
+</body>
+</html>

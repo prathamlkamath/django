@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Pet Adoption</title>
+    <style>
+        .pet {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+        button {
+            padding: 10px 15px;
+            color: white;
+            background-color: #28a745;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .details-btn {
+            background-color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <h1>Pets Available for Adoption</h1>
+    {% for pet in pets %}
+        <div class="pet">
+            <h2>{{ pet.name }}</h2>
+            <p><strong>Breed:</strong> {{ pet.breed }}</p>
+            <p><strong>Age:</strong> {{ pet.age }} years</p>
+            <p>{{ pet.description }}</p>
+            <a href="details/{{ pet.id }}/">
+                <button class="details-btn">Details</button>
+            </a>
+            <a href="{{ pet.id }}/adopt-form/">
+                <button>Adopt</button>
+            </a>
+        </div>
+    {% endfor %}
+</body>
+</html>
